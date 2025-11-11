@@ -41,7 +41,7 @@ jobs:
         run: ./gradlew publish
         working-directory: ${{ env.workingDirectory }}
       - name: Create new vendor JSON
-        run: cp ${{ env.workingDirectory }}/build/maven/yams.json ${{ env.workingDirectory }}/build/maven/yams-${{inputs.releaseVersion}}.json
+        run: cp ${{ env.workingDirectory }}/build/maven/yagsl.json ${{ env.workingDirectory }}/build/maven/yagsl-${{inputs.releaseVersion}}.json
       - name: Create Vendor JSON Repo PR
         uses: wpilibsuite/vendor-json-repo/.github/actions/add_vendordep@main
         with:
