@@ -179,4 +179,9 @@ public class GamePieceOnFieldSimulation extends Body implements GamePiece {
     public boolean isGrounded() {
         return true;
     }
+
+    @Override
+    public void triggerHitTargeCallBack(){
+        return;
+    }
 }
