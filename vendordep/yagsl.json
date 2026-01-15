@@ -35,7 +35,6 @@
       "onlineUrl": "https://software-metadata.revrobotics.com/REVLib-2026.json"
     },
     {
-
       "uuid": "e7900d8d-826f-4dca-a1ff-182f658e98af",
       "errorMessage": "Phoenix6 Replay is required!",
       "offlineFileName": "Phoenix6-replay-26.1.0.json",
