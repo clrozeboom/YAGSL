@@ -11,6 +11,7 @@ import com.ctre.phoenix6.controls.MotionMagicVoltage;
 import com.ctre.phoenix6.controls.VelocityVoltage;
 import com.ctre.phoenix6.hardware.TalonFXS;
 import com.ctre.phoenix6.signals.AdvancedHallSupportValue;
+import com.ctre.phoenix6.signals.ExternalFeedbackSensorSourceValue;
 import com.ctre.phoenix6.signals.FeedbackSensorSourceValue;
 import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.MotorArrangementValue;
@@ -132,6 +133,19 @@ public class TalonFXSSwerve extends SwerveMotor
         configuration.Commutation.withAdvancedHallSupport(AdvancedHallSupportValue.Enabled);
         configuration.Commutation.withMotorArrangement(MotorArrangementValue.Minion_JST);
       }
+      else if (isMotor(simMotor, DCMotor.getNEO(1)))
+      {
+        configuration.Commutation.withAdvancedHallSupport(AdvancedHallSupportValue.Disabled);
+        configuration.Commutation.withMotorArrangement(MotorArrangementValue.NEO_JST);
+      } else if (isMotor(simMotor, DCMotor.getNeo550(1)))
+      {
+        configuration.Commutation.withAdvancedHallSupport(AdvancedHallSupportValue.Disabled);
+        configuration.Commutation.withMotorArrangement(MotorArrangementValue.NEO550_JST);
+      } else if (isMotor(simMotor, DCMotor.getNeoVortex(1)))
+      {
+        configuration.Commutation.withAdvancedHallSupport(AdvancedHallSupportValue.Disabled);
+        configuration.Commutation.withMotorArrangement(MotorArrangementValue.NEO_JST);
+      }
     }
   }
 
@@ -207,10 +221,10 @@ public class TalonFXSSwerve extends SwerveMotor
                                  .withMotionMagicExpo_kV(0.12 * positionConversionFactor)
                                  .withMotionMagicExpo_kA(0.1);
 
-    /*
-    configuration.Feedback.withFeedbackSensorSource(FeedbackSensorSourceValue.RotorSensor)
+
+    configuration.ExternalFeedback.withExternalFeedbackSensorSource(ExternalFeedbackSensorSourceValue.Commutation)
                           .withSensorToMechanismRatio(positionConversionFactor);
-     */
+
 
     cfg.apply(configuration);
   }
