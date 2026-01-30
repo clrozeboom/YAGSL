@@ -105,7 +105,8 @@ public class ReflectionsManager
     try
     {
       Class<?> wrapper   = Class.forName(className);
-      Object   vendorObj = wrapper.getDeclaredConstructor(parameterTypes).newInstance(parameters);
+      var      vendorCtr = wrapper.getDeclaredConstructor(parameterTypes);
+      var      vendorObj = vendorCtr.newInstance(parameters);
       return (T) vendorObj;
     } catch (Exception e)
     {
